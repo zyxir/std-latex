@@ -3,9 +3,7 @@
 
 * Standard for LaTeX
 
-自用 LaTeX 模板和排版標準。
-
-[[./template.pdf][模板文檔(PDF)]] • [[./zylatex.sty][模板宏包(STY)]]
+自用 LaTeX 模板和排版規範。
 
 #+html: </div>
 
@@ -15,3 +13,8 @@
 2. 對於有統一規範的標準文檔，例如學位論文、期刊投稿、機關公文，請優先參考學校、期刊和機關給出的相應標準。
 3. 一般的文檔規範給出的主要是排版方面的規則，而本規範在 LaTeX 源代碼的撰寫上也給出了規範要求。
 4. 本規範與[[https://github.com/zyxir/zyemacs][我的 Emacs 配置]]搭配使用能獲得最佳的使用體驗。
+
+*用法：*
+
+1. 本模板的全部內容均定義在 ~zylatex.sty~ 中。如要用使用本模板，衹需下載 ~zylatex.sty~​，並在文檔開頭加上 ~\usepackage[你的選項]{zylatex}~ 即可。
+2. 關於 ~zylatex~ 包的具體使用方法和實際排版效果，參見 ~template.tex~ 源文件和 ~template.pdf~ 文檔。PDF 文件建議您下載後再閱讀，因爲 GitHub 的在綫 PDF 閱讀器不支持超鏈接等功能。
