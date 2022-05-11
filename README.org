@@ -16,5 +16,5 @@
 
 *用法：*
 
-1. 本模板的全部內容均定義在 ~zylatex.sty~ 中。如要用使用本模板，衹需下載 ~zylatex.sty~​，並在文檔開頭加上 ~\usepackage[你的選項]{zylatex}~ 即可。
+1. 本模板的全部內容均定義在 ~zylatex.sty~ 中。如要用使用本模板，衹需下載 ~zylatex.sty~ ，並在文檔開頭加上 ~\usepackage[你的選項]{zylatex}~ 即可。
 2. 關於 ~zylatex~ 包的具體使用方法和實際排版效果，參見 ~template.tex~ 源文件和 ~template.pdf~ 文檔。PDF 文件建議您下載後再閱讀，因爲 GitHub 的在綫 PDF 閱讀器不支持超鏈接等功能。
