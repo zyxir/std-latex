@@ -1,0 +1,137 @@
+% zylatex.sty -- Zyxir 的個人 LaTeX 模板。
+% 歡迎以本文件爲基礎設計您自己的私人模板！
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{zylatex}[2022/05/11]
+
+
+%% 參數讀取。
+
+% 使用 kvoptions 包進行鍵值對型參數讀取。
+\RequirePackage{kvoptions}
+\SetupKeyvalOptions{
+  family=zy,
+  prefix=zy@,
+}
+
+% 參數 zhindent 決定是否使用中文的縮進風格。
+\DeclareBoolOption[false]{zhindent}
+
+% 參數 fontset 決定所用的字體方案。
+\DeclareStringOption[zytc]{fontset}
+\def\zy@fontset@zytc{zytc}
+\def\zy@fontset@ctex{ctex}
+
+% 處理所有參數。
+\ProcessKeyvalOptions*
+
+
+%% CTEX 中文支持
+% 中文支持是默認開啓的，哪怕文章中沒有用到中文。
+
+\RequirePackage[
+scheme=plain,
+fontset=none
+]{ctex}
+
+
+%% 字體設置
+
+\ifx\zy@fontset\zy@fontset@zytc
+% 採用 zytc 字體方案。
+\RequirePackage[scheme=plain,fontset=none]{ctex}
+\setCJKmainfont{Source Han Serif HC}
+\setCJKfamilyfont{zhsong}{Source Han Serif HC}
+\setCJKfamilyfont{zhhei}{Sarasa Gothic HC}
+\setCJKfamilyfont{zhfs}[BoldFont={Sarasa Gothic HC}]{Adobe Fangsong Std}
+\setCJKfamilyfont{zhkai}[BoldFont={Sarasa Gothic HC}]{AR PL KaitiM Big5}
+\newcommand*{\songti}{\CJKfamily{zhsong}}
+\newcommand*{\heiti}{\CJKfamily{zhhei}}
+\newcommand*{\fangsong}{\CJKfamily{zhfs}}
+\newcommand*{\kaishu}{\CJKfamily{zhkai}}
+\setmainfont{IBM Plex Serif}
+\setsansfont{Roboto}
+\setmonofont{Sarasa Mono HC}
+\else
+\ifx\zy@fontset\zy@fontset@ctex
+% 讓 ctex 自動決定字體，即不顯式指定字體集。
+\RequirePackage[scheme=plain]{ctex}
+\else
+% 使用用戶指定的 ctex 字體集。
+\RequirePackage[scheme=plain,fontset=\zy@fontset]{ctex}
+\fi
+\fi
+
+
+%% 頁面設置
+
+% 使用 geometry 包配置頁面相關距離。
+\RequirePackage{geometry}
+\geometry{
+  % 頁邊距。
+  left=3.17cm,
+  right=3.17cm,
+  top=2.54cm,
+  bottom=2.54cm,
+}
+
+% 使用 setspace 包配置行距。
+\RequirePackage{setspace}
+% 設置行間距爲文字高度的 1.3 倍。
+\setstretch{1.3}
+
+% 跟據 zhindent 參數來配置段落縮進。
+\ifzy@zhindent
+% 中文段落設置
+% 設置首段縮進。
+\RequirePackage{indentfirst}
+% 設置段首縮進爲 2em。
+\setlength{\parindent}{2em}
+% 設置段落間距爲 0ex。
+\setlength{\parskip}{0ex}
+\else
+% 英文段落設置。
+% 設置段首縮進爲 0em。
+\setlength{\parindent}{0em}
+% 設置段落間距爲 2ex。
+\setlength{\parskip}{2ex}
+\fi
+
+
+%% 表格設置
+
+% 調整行高。
+\renewcommand{\arraystretch}{1.3}
+
+% 多行單元格支持。
+\RequirePackage{multirow}
+
+
+%% 其它設置
+
+%% 日期設置。
+\RequirePackage[
+% 使用 ISO 8601 標準的日期。
+style=iso,
+]{datetime2}
+
+%% 超鏈接設置。
+\RequirePackage[
+% 爲各類超鏈接着色。
+colorlinks=true,
+]{hyperref}
+
+%% 腳注設置。
+\RequirePackage[
+% 每頁的腳注均從 0 開始編號。
+perpage,
+]{footmisc}
+
+%% 頁眉頁腳設置。
+\pagestyle{plain}
+
+
+%% 結束
+
+\endinput
+% end of zylatex.sty

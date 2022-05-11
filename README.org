@@ -3,7 +3,12 @@
 
 * Standard for LaTeX
 
-自用 LaTeX 代碼風格和排版標準。同時給出了一個文檔模板。
+自用 LaTeX 模板和排版標準。
+
+[模板文檔 (PDF)] • [zylatex.sty]
+
+[模板文檔 (PDF)]: ./template.pdf
+[zylatex.sty]: ./zylatex.sty
 
 #+html: </div>
 

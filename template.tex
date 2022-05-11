@@ -1,0 +1,109 @@
+% 文檔類設定，本文檔類別爲「書籍」。
+\documentclass[
+% 設置頁面大小爲 A4 紙張大小。
+a4paper,
+% 書籍的排版默認開啓了 twoside（即頁面分奇偶，奇數頁和偶數頁的文字偏移、頁眉頁腳
+% 位置均是對稱的）選項，但爲了方便電子閱讀，本文檔使用不分奇偶頁的 oneside 選項。
+oneside,
+% 設置默認字體大小爲 12 磅，對應中文字號小四。
+12pt,
+]{book}
+
+% 大部分設置放在了 zylatex.sty 包中，以便複用。
+\usepackage[
+zhindent=false,
+fontset=zytc,
+]{zylatex}
+
+\title{
+  \Huge \LaTeX 模板文檔 \\
+  \Large \LaTeX\ Template Document
+}
+\author{
+  陳卓 (Eric Chen)
+}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\chapter{文本設置}
+
+\section{段落縮進}
+
+\texttt{zylatex} 默認採用西文的段落縮進方式，即——段首不縮進，但段落與段落之間有一定間距，用於區分段落。這個文檔使用的正是西文縮進方式。可以使用 \texttt{zhindent=true} 選項來啓用中文的常用縮進方式，即——每個段落的開頭縮進兩個漢字長度，段落與段落之間不設額外間距。
+
+\section{字體選取}
+
+\texttt{zylatex} 使用 C\TeX 宏集\footnote{C\TeX 宏集是筆者所知的最好的 \LaTeX 中文解決方案。見其 \href{https://ctan.org/pkg/ctex}{CTAN 頁面}。}來提供中文支持。在使用 \texttt{zylatex} 時，可以通過指定 \texttt{fontset} 參數來指定文檔使用的字體。具體配置方式是：
+
+\begin{itemize}
+\item \texttt{fontset=zytc} （默認選項）使用筆者自己搭配的一套字體方案，如表 \ref{tab:fontset-fonts} 所示。必須要安裝了方案中的每一個字體才能正常編譯。
+\item \texttt{fontset=ctex} （推薦選項）使用 C\TeX 自動檢測用戶使用的操作系統，配置相應的字體。具體請參見\href{http://mirrors.ctan.org/language/chinese/ctex/ctex.pdf}{C\TeX 宏集手册}第 6-7 頁。
+\item \texttt{fontset=adobe|fandol|founder|mac|macnew|macold|ubuntu|windows|none|...} 指定 C\TeX 宏集加載的字庫。具體請參見\href{http://mirrors.ctan.org/language/chinese/ctex/ctex.pdf}{C\TeX 宏集手册}第 6-7 頁。
+\item \texttt{fontset=none} 不配置中文字體，由用戶自己配置。具體請參見\href{http://mirrors.ctan.org/language/chinese/ctex/ctex.pdf}{C\TeX 宏集手册}第 6-7 頁。
+\end{itemize}
+
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{cccc}
+    \hline
+     字體名稱 & 字體命令 & \texttt{windows} 方案 & \texttt{zytc} 方案 \\
+    \hline
+    宋體（中文正文） & \texttt{\textbackslash songti} & 宋体 & Source Han Serif HC \\
+    黑體 & \texttt{\textbackslash heiti} & 黑体 & Sarasa Gothic HC \\
+    仿宋體 & \texttt{\textbackslash fangsong} & 仿宋 & Adobe 仿宋 Std \\
+    楷書 & \texttt{\textbackslash kaishu} & 楷书 & 文鼎PL中楷 \\
+    衬綫體（西文正文） & 無 & \LaTeX 默認 & IBM Plex Serif \\
+    無衬綫體 & \texttt{\textbackslash textsf} & \LaTeX 默認 & Roboto \\
+    \hline
+  \end{tabular}
+  \caption{筆者自用的 \texttt{zytc} 方案與 C\TeX 的 \texttt{windows} 方案之對比}
+  \label{tab:fontset-fonts}
+\end{table}
+
+\section{頁面設置}
+
+\section{中文示例}
+
+臣亮言：先帝創業未半，而中道崩殂。今天下三分，益州疲敝，此誠危急存亡之秋也！然侍衞之臣，不懈於內；忠志之士，忘身於外者，蓋追先帝之殊遇，欲報之於陛下也。誠宜開張聖聽，以光先帝遺德，恢弘志士之氣；不宜妄自菲薄，引喻失義，以塞忠諫之路也。
+
+（黑體測試）{\heiti 宮中、府中，俱為一體；陟罰臧否，不宜異同。若有作奸、犯科，及為忠善者，宜付有司，論其刑賞，以昭陛下平明之治；不宜偏私，使內外異法也。}
+
+（仿宋體測試）{\fangsong 侍中、侍郎郭攸之、費禕、董允等，此皆良實，志慮忠純，是以先帝簡拔以遺陛下。愚以為宮中之事，事無大小，悉以咨之，然後施行，必能裨補闕漏，有所廣益。將軍向寵，性行淑均，曉暢軍事，試用於昔日，先帝稱之曰「能」，是以眾議舉寵為督。愚以為營中之事，事無大小，悉以咨之，必能使行陣和睦，優劣得所也。}
+
+（楷書測試）{\kaishu 親賢臣，遠小人，此先漢所以興隆也；親小人，遠賢臣，此後漢所以傾頹也。先帝在時，每與臣論此事，未嘗不歎息痛恨於桓、靈也。侍中、尚書、長史、參軍，此悉貞亮死節之臣也，願陛下親之信之，則漢室之隆，可計日而待也。}
+
+（粗體測試）\textbf{臣本布衣，躬耕於南陽，苟全性命於亂世，不求聞達於諸侯。先帝不以臣卑鄙，猥自枉屈，三顧臣於草廬之中，諮臣以當世之事；由是感激，遂許先帝以驅馳。後值傾覆，受任於敗軍之際，奉命於危難之間，爾來二十有一年矣！先帝知臣謹慎，故臨崩寄臣以大事也。受命以來，夙夜憂歎，恐託付不效，以傷先帝之明，故五月渡瀘，深入不毛。今南方已定，兵甲已足，當獎帥三軍，北定中原，庶竭駑鈍，攘除奸凶，興復漢室，還於舊都。此臣所以報先帝，而忠陛下之職分也。至於斟酌損益，進盡忠言，則攸之、禕、允之任也。}
+
+願陛下託臣以討賊興復之效；不效，則治臣之罪，以告先帝之靈。若無興德之言，則責攸之、禕、允等之 咎，以彰其慢。陛下亦宜自謀，以諮諏善道，察納雅言，深追先帝遺詔。臣不勝受恩感激。今當遠離，臨表涕泣，不知所云。
+
+\section{西文示例（拉丁字母）}
+
+Lorem ipsum dolor sit amet, ius volumus voluptatibus ei, omnis atqui at mei. Vim in case dicam delectus. Has no odio meliore civibus, sea ea postulant consequat repudiandae, ea justo labitur pertinax qui. Congue utamur maiestatis ea pro. His quod noluisse delicata te, quo nibh laudem comprehensam ne, adversarium theophrastus sea ut. Agam definitiones ut mea.
+
+（無衬綫體測試）\textsf{Ad qui ludus tractatos molestiae. Est legendos incorrupte id, vidit mollis facilis mea an. Mei etiam essent patrioque at, pri te graece omnium intellegat, mei ei saperet maiorum. Duo habeo facer volumus te, eu graece vocent legendos nam, eu cum justo nusquam. Iudico consetetur te mea.}
+
+（等寬字體測試）\texttt{Te has alii legere corrumpit, in justo assueverit eam, eu facer contentiones pro. An has error latine volumus, vel ei bonorum assueverit vituperatoribus, et quo erat qualisque. Mei velit urbanitas at. Ut est delenit eligendi facilisi, ne sed dicunt interesset, ex ludus invenire imperdiet nam. Dolore appetere vix ut, an nec purto ancillae. No aeterno deserunt hendrerit usu, vim oratio putent ne.}
+
+（粗體和斜體測試\footnote{粗體和斜體均是基於默認西文字體的。}）\textbf{In pro mazim sensibus. Viderer complectitur mel ne, et has libris aliquam epicurei, amet quidam torquatos eu est. Cu quem putant qui, id fugit doming deserunt vis. Probo verterem duo et. Has diceret percipit ex, eos purto elitr ea, ad insolens persecuti dissentias nec.} \textit{Ei alia altera quo. Cu mea viderer recusabo, soluta mediocrem sed eu.ittantur ne. Id pro discere offendit. At vidit expetendis vel, at eos semper dignissim constituam.}
+
+\section{西文示例（西里爾字母）}
+
+Лорем ипсум долор сит амет, регионе оффендит либерависсе хис ет. Ат сед алияуам инермис, ин хис анциллае пхаедрум репудиандае. Елит вулпутате усу ин, пробо солеат дицерет но вих. Ат дебет ехплицари дефинитионес иус. Про семпер перципит ад. Нец но утинам перфецто сапиентем.
+
+（無衬綫體測試）\textsf{Синт сусципит сеа ин, еа хас антиопам цоррумпит. Яуот сусципиантур дуо ат. Лудус луптатум хас цу. Еи цлита инцоррупте меа. Саепе хендрерит цонсеяуат сед еи, сед цасе мелиус еи. Сит цу нобис плацерат темпорибус.}
+
+（等寬字體測試）\texttt{Малис цаусае инвидунт но еам, ет хас уллум волуптариа, про сумо перпетуа ет. Хинц ратионибус усу ат. Но интегре хабемус нам. Елит фабулас импедит хас но, аперири цивибус интеллегат цу меа, ипсум татион виртуте еу еам. Меа нибх регионе цотидиеяуе ет, темпор еирмод албуциус еи меа, ех сит анимал аппареат. Ид вис лаореет деленити малуиссет, но сонет аппеллантур вел. Иллум саепе еррорибус ат меи.}
+
+（粗體和斜體測試\footnote{粗體和斜體均是基於默認西文字體的。}）\textbf{Бонорум фацилиси неглегентур еа вел, хомеро пертинациа еос но. Ут муциус ностро аудиам меи, аугуе еяуидем дефиниебас сит ат.} \textit{Ат деленит цонституам дуо. Ин ребум аццусамус пертинациа еос, цу деленит глориатур абхорреант хис. Сит елит атяуи латине ет, хас децоре убияуе ат, ест но алияуам адверсариум.}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
