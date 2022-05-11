@@ -5,12 +5,9 @@
 
 自用 LaTeX 模板和排版標準。
 
-[模板文檔 (PDF)] • [zylatex.sty]
+[[./template.pdf][模板文檔(PDF)]] • [[./zylatex.sty][模板宏包(STY)]]
 
 #+html: </div>
-
-[模板文檔 (PDF)]: ./template.pdf
-[zylatex.sty]: ./zylatex.sty
 
 *使用須知：*
 
