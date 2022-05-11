@@ -1,4 +1,5 @@
 % zylatex.sty -- Zyxir 的個人 LaTeX 模板。
+% 本模板只適用於使用 XeLaTeX 編譯。
 % 歡迎以本文件爲基礎設計您自己的私人模板！
 
 \NeedsTeXFormat{LaTeX2e}
@@ -22,17 +23,11 @@
 \def\zy@fontset@zytc{zytc}
 \def\zy@fontset@ctex{ctex}
 
+% 參數 phone 決定是否輸出適合手機閱讀的文檔。
+\DeclareBoolOption[false]{phone}
+
 % 處理所有參數。
 \ProcessKeyvalOptions*
-
-
-%% CTEX 中文支持
-% 中文支持是默認開啓的，哪怕文章中沒有用到中文。
-
-\RequirePackage[
-scheme=plain,
-fontset=none
-]{ctex}
 
 
 %% 字體設置
@@ -49,9 +44,9 @@ fontset=none
 \newcommand*{\heiti}{\CJKfamily{zhhei}}
 \newcommand*{\fangsong}{\CJKfamily{zhfs}}
 \newcommand*{\kaishu}{\CJKfamily{zhkai}}
-\setmainfont{IBM Plex Serif}
-\setsansfont{Roboto}
-\setmonofont{Sarasa Mono HC}
+\setmainfont[Ligatures=TeX]{IBM Plex Serif}
+\setsansfont[Ligatures=TeX]{Roboto}
+\setmonofont[Ligatures=TeX]{Sarasa Mono HC}
 \else
 \ifx\zy@fontset\zy@fontset@ctex
 % 讓 ctex 自動決定字體，即不顯式指定字體集。
@@ -67,13 +62,33 @@ fontset=none
 
 % 使用 geometry 包配置頁面相關距離。
 \RequirePackage{geometry}
+
+% 用這個宏來將頁面設置成適合手機閱讀的尺寸。
+\newcommand*{\phonegeo}{
+  \geometry{
+    paperwidth=80mm,
+    paperheight=160mm,
+    left=4mm,
+    right=4mm,
+    top=4mm,
+    bottom=7mm,
+    footskip=4mm,
+  }
+  \emergencystretch 2mm
+}
+
+\ifzy@phone
+% 適合手機閱讀的頁面尺寸。
+\phonegeo
+\else
+% 普通頁面尺寸。
 \geometry{
-  % 頁邊距。
   left=3.17cm,
   right=3.17cm,
   top=2.54cm,
   bottom=2.54cm,
 }
+\fi
 
 % 使用 setspace 包配置行距。
 \RequirePackage{setspace}

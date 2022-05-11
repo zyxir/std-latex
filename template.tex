@@ -15,6 +15,11 @@ zhindent=false,
 fontset=zytc,
 ]{zylatex}
 
+% 多語言混排設置。
+\usepackage{polyglossia}
+\setdefaultlanguage{english}
+\setotherlanguages{russian}
+
 \title{
   \Huge \LaTeX 模板文檔 \\
   \Large \LaTeX\ Template Document
@@ -59,6 +64,7 @@ fontset=zytc,
     楷書 & \texttt{\textbackslash kaishu} & 楷书 & 文鼎PL中楷 \\
     衬綫體（西文正文） & 無 & \LaTeX 默認 & IBM Plex Serif \\
     無衬綫體 & \texttt{\textbackslash textsf} & \LaTeX 默認 & Roboto \\
+    等寬體 & \texttt{\textbackslash texttt} & \LaTeX 默認 & Sarasa Mono HC \\
     \hline
   \end{tabular}
   \caption{C\TeX 的 \texttt{windows} 方案與筆者自用的 \texttt{zytc} 方案之對比}
@@ -69,37 +75,41 @@ fontset=zytc,
 
 \section{中文示例}
 
+（以下內容爲諸葛亮的《出師表》）
+
 臣亮言：先帝創業未半，而中道崩殂。今天下三分，益州疲敝，此誠危急存亡之秋也！然侍衞之臣，不懈於內；忠志之士，忘身於外者，蓋追先帝之殊遇，欲報之於陛下也。誠宜開張聖聽，以光先帝遺德，恢弘志士之氣；不宜妄自菲薄，引喻失義，以塞忠諫之路也。
 
-（黑體測試）{\heiti 宮中、府中，俱為一體；陟罰臧否，不宜異同。若有作奸、犯科，及為忠善者，宜付有司，論其刑賞，以昭陛下平明之治；不宜偏私，使內外異法也。}
+（黑體）{\heiti 宮中、府中，俱為一體；陟罰臧否，不宜異同。若有作奸、犯科，及為忠善者，宜付有司，論其刑賞，以昭陛下平明之治；不宜偏私，使內外異法也。}
 
-（仿宋體測試）{\fangsong 侍中、侍郎郭攸之、費禕、董允等，此皆良實，志慮忠純，是以先帝簡拔以遺陛下。愚以為宮中之事，事無大小，悉以咨之，然後施行，必能裨補闕漏，有所廣益。將軍向寵，性行淑均，曉暢軍事，試用於昔日，先帝稱之曰「能」，是以眾議舉寵為督。愚以為營中之事，事無大小，悉以咨之，必能使行陣和睦，優劣得所也。}
+（仿宋體）{\fangsong 侍中、侍郎郭攸之、費禕、董允等，此皆良實，志慮忠純，是以先帝簡拔以遺陛下。愚以為宮中之事，事無大小，悉以咨之，然後施行，必能裨補闕漏，有所廣益。將軍向寵，性行淑均，曉暢軍事，試用於昔日，先帝稱之曰「能」，是以眾議舉寵為督。愚以為營中之事，事無大小，悉以咨之，必能使行陣和睦，優劣得所也。}
 
-（楷書測試）{\kaishu 親賢臣，遠小人，此先漢所以興隆也；親小人，遠賢臣，此後漢所以傾頹也。先帝在時，每與臣論此事，未嘗不歎息痛恨於桓、靈也。侍中、尚書、長史、參軍，此悉貞亮死節之臣也，願陛下親之信之，則漢室之隆，可計日而待也。}
+（楷書）{\kaishu 親賢臣，遠小人，此先漢所以興隆也；親小人，遠賢臣，此後漢所以傾頹也。先帝在時，每與臣論此事，未嘗不歎息痛恨於桓、靈也。侍中、尚書、長史、參軍，此悉貞亮死節之臣也，願陛下親之信之，則漢室之隆，可計日而待也。}
 
-（粗體測試）\textbf{臣本布衣，躬耕於南陽，苟全性命於亂世，不求聞達於諸侯。先帝不以臣卑鄙，猥自枉屈，三顧臣於草廬之中，諮臣以當世之事；由是感激，遂許先帝以驅馳。後值傾覆，受任於敗軍之際，奉命於危難之間，爾來二十有一年矣！先帝知臣謹慎，故臨崩寄臣以大事也。受命以來，夙夜憂歎，恐託付不效，以傷先帝之明，故五月渡瀘，深入不毛。今南方已定，兵甲已足，當獎帥三軍，北定中原，庶竭駑鈍，攘除奸凶，興復漢室，還於舊都。此臣所以報先帝，而忠陛下之職分也。至於斟酌損益，進盡忠言，則攸之、禕、允之任也。}
+（粗體）\textbf{臣本布衣，躬耕於南陽，苟全性命於亂世，不求聞達於諸侯。先帝不以臣卑鄙，猥自枉屈，三顧臣於草廬之中，諮臣以當世之事；由是感激，遂許先帝以驅馳。後值傾覆，受任於敗軍之際，奉命於危難之間，爾來二十有一年矣！先帝知臣謹慎，故臨崩寄臣以大事也。受命以來，夙夜憂歎，恐託付不效，以傷先帝之明，故五月渡瀘，深入不毛。今南方已定，兵甲已足，當獎帥三軍，北定中原，庶竭駑鈍，攘除奸凶，興復漢室，還於舊都。此臣所以報先帝，而忠陛下之職分也。至於斟酌損益，進盡忠言，則攸之、禕、允之任也。}
 
 願陛下託臣以討賊興復之效；不效，則治臣之罪，以告先帝之靈。若無興德之言，則責攸之、禕、允等之 咎，以彰其慢。陛下亦宜自謀，以諮諏善道，察納雅言，深追先帝遺詔。臣不勝受恩感激。今當遠離，臨表涕泣，不知所云。
 
 \section{西文示例（拉丁字母）}
 
-Lorem ipsum dolor sit amet, ius volumus voluptatibus ei, omnis atqui at mei. Vim in case dicam delectus. Has no odio meliore civibus, sea ea postulant consequat repudiandae, ea justo labitur pertinax qui. Congue utamur maiestatis ea pro. His quod noluisse delicata te, quo nibh laudem comprehensam ne, adversarium theophrastus sea ut. Agam definitiones ut mea.
+（以下內容節選自 Martin Luther King, Jr. 的 I Have a Dream）
 
-（無衬綫體測試）\textsf{Ad qui ludus tractatos molestiae. Est legendos incorrupte id, vidit mollis facilis mea an. Mei etiam essent patrioque at, pri te graece omnium intellegat, mei ei saperet maiorum. Duo habeo facer volumus te, eu graece vocent legendos nam, eu cum justo nusquam. Iudico consetetur te mea.}
+I am happy to join with you today in what will go down in history as the greatest demonstration for freedom in the history of our nation.
 
-（等寬字體測試）\texttt{Te has alii legere corrumpit, in justo assueverit eam, eu facer contentiones pro. An has error latine volumus, vel ei bonorum assueverit vituperatoribus, et quo erat qualisque. Mei velit urbanitas at. Ut est delenit eligendi facilisi, ne sed dicunt interesset, ex ludus invenire imperdiet nam. Dolore appetere vix ut, an nec purto ancillae. No aeterno deserunt hendrerit usu, vim oratio putent ne.}
+(無衬綫體) \textsf{Five score years ago, a great American, in whose symbolic shadow we stand today, signed the Emancipation Proclamation. This momentous decree came as a great beacon light of hope to millions of Negro slaves who had been seared in the flames of withering injustice. It came as a joyous daybreak to end the long night of their captivity.}
 
-（粗體和斜體測試\footnote{粗體和斜體均是基於默認西文字體的。}）\textbf{In pro mazim sensibus. Viderer complectitur mel ne, et has libris aliquam epicurei, amet quidam torquatos eu est. Cu quem putant qui, id fugit doming deserunt vis. Probo verterem duo et. Has diceret percipit ex, eos purto elitr ea, ad insolens persecuti dissentias nec.} \textit{Ei alia altera quo. Cu mea viderer recusabo, soluta mediocrem sed eu.ittantur ne. Id pro discere offendit. At vidit expetendis vel, at eos semper dignissim constituam.}
+(等寬體) \texttt{But one hundred years later, the Negro still is not free.} (粗體) \textbf{One hundred years later, the life of the Negro is still sadly crippled by the manacles of segregation and the chains of discrimination.} (斜體) \textit{One hundred years later, the Negro lives on a lonely island of poverty in the midst of a vast ocean of material prosperity.} One hundred years later, the Negro is still languished in the corners of American society and finds himself an exile in his own land. And so we've come here today to dramatize a shameful condition.
 
 \section{西文示例（西里爾字母）}
 
-Лорем ипсум долор сит амет, регионе оффендит либерависсе хис ет. Ат сед алияуам инермис, ин хис анциллае пхаедрум репудиандае. Елит вулпутате усу ин, пробо солеат дицерет но вих. Ат дебет ехплицари дефинитионес иус. Про семпер перципит ад. Нец но утинам перфецто сапиентем.
+（以下內容摘自\href{http://ru.tingroom.com/wap/index.php?moduleid=28&itemid=21380}{俄语学习网}）
 
-（無衬綫體測試）\textsf{Синт сусципит сеа ин, еа хас антиопам цоррумпит. Яуот сусципиантур дуо ат. Лудус луптатум хас цу. Еи цлита инцоррупте меа. Саепе хендрерит цонсеяуат сед еи, сед цасе мелиус еи. Сит цу нобис плацерат темпорибус.}
+\textrussian{
+  Я учусь в Педагогическом институте на факультете русского языка. В нашей группе двадцать студентов. Двое из них приехали из России. Наш коллектив очень дружный.
 
-（等寬字體測試）\texttt{Малис цаусае инвидунт но еам, ет хас уллум волуптариа, про сумо перпетуа ет. Хинц ратионибус усу ат. Но интегре хабемус нам. Елит фабулас импедит хас но, аперири цивибус интеллегат цу меа, ипсум татион виртуте еу еам. Меа нибх регионе цотидиеяуе ет, темпор еирмод албуциус еи меа, ех сит анимал аппареат. Ид вис лаореет деленити малуиссет, но сонет аппеллантур вел. Иллум саепе еррорибус ат меи.}
+  (無衬綫體) \textsf{Каждый день студенческая жизнь начинается с шести часов утра . Мы со своими товарищами делаем утреннюю зарядку на площадке. После завтрака я иду на занятия. Во время обеденного перерыва я отдахаю в общежитии. Вечером я занимаюсь самостоятельно в аудитории, в 10 часов ложусь спать.}
 
-（粗體和斜體測試\footnote{粗體和斜體均是基於默認西文字體的。}）\textbf{Бонорум фацилиси неглегентур еа вел, хомеро пертинациа еос но. Ут муциус ностро аудиам меи, аугуе еяуидем дефиниебас сит ат.} \textit{Ат деленит цонституам дуо. Ин ребум аццусамус пертинациа еос, цу деленит глориатур абхорреант хис. Сит елит атяуи латине ет, хас децоре убияуе ат, ест но алияуам адверсариум.}
+  (等寬體) \texttt{По субботам и воскресеньям большую часть времени я занимаюсь в библиотеке.} (粗體) \textbf{Здесь бывает много студентов, всегда тихо и чисто.} (斜體) \textit{Я люблю читать журнал и газету. Вечером я иногда хожу в кино.} В клубе всегда показывают интересные фильмы, и китайские, и иностранные. Иногда мы вместе с друзьями гуляем на свежем воздухе и разговариваем о нашей студенческой жизни. У нас в институте много деревьев, ещё есть удобные скамейки и извилистые аллеи. Молодые .пары любят здесь  проводить время.
+}
 
 \end{document}
 
