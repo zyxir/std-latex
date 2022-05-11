@@ -7,10 +7,10 @@
 
 [模板文檔 (PDF)] • [zylatex.sty]
 
+#+html: </div>
+
 [模板文檔 (PDF)]: ./template.pdf
 [zylatex.sty]: ./zylatex.sty
-
-#+html: </div>
 
 *使用須知：*
 
