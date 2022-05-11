@@ -66,15 +66,15 @@
 % 用這個宏來將頁面設置成適合手機閱讀的尺寸。
 \newcommand*{\phonegeo}{
   \geometry{
-    paperwidth=80mm,
-    paperheight=160mm,
+    paperwidth=100mm,
+    paperheight=200mm,
     left=4mm,
     right=4mm,
     top=4mm,
-    bottom=7mm,
-    footskip=4mm,
+    bottom=4mm,
   }
-  \emergencystretch 2mm
+  \sloppy
+  \pagestyle{empty}
 }
 
 \ifzy@phone
@@ -141,9 +141,6 @@ colorlinks=true,
 % 每頁的腳注均從 1 開始編號。
 perpage,
 ]{footmisc}
-
-%% 頁眉頁腳設置。
-\pagestyle{plain}
 
 
 %% 結束
