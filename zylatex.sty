@@ -11,6 +11,9 @@
 %%
 %% 本包是針對 XeLaTeX 設計的，使用 PDFLaTeX 等編譯不保證能得到同樣效果。
 %%
+%% 關於本包的具體用法，源代碼中給出了少量注釋（見「參數定義」部分）；更詳細的用法
+%% 文檔參見模板文檔 template.pdf。
+%%
 %% -----------------------------------------------------------------------------
 %%
 
@@ -55,6 +58,14 @@
 \def\zy@layout@paper{paper}
 \def\zy@layout@phone{phone}
 \def\zy@layout@none{none}
+
+%% 參數 datetime
+% 日期和時間格式。可能的值爲
+% iso -- ISO 8601 定義的國際通用日期時間格式。
+%% zylatex 使用 datetime2 包來改變日期格式，所以在文中請用 \DTMtoday 命令來獲取
+%% 日期，否則此參數不會生效。
+\DeclareStringOption[iso]{datetime}
+\def\zy@datetime@iso{iso}
 
 %% 處理所有參數。
 \ProcessKeyvalOptions*
@@ -197,10 +208,9 @@
 \RequirePackage{multirow}
 
 %% 日期時間設置
-\RequirePackage[
 % 使用 ISO 8601 標準的日期。
-style = iso,
-]{datetime2}
+\RequirePackage{datetime2}
+\DTMsetstyle{\zy@datetime}
 
 %% 超鏈接設置
 \RequirePackage[

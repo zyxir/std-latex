@@ -1,4 +1,4 @@
-% 文檔類設定，本文檔類別爲「書籍」。
+%% 文檔類設定，本文檔類別爲「書籍」。
 \documentclass[
 % 書籍的排版默認開啓了 twoside（即頁面分奇偶，奇數頁和偶數頁的文字偏移、頁眉頁腳
 % 位置均是對稱的）選項，但爲了方便電子閱讀，本文檔使用不分奇偶頁的 oneside 選項。
@@ -7,19 +7,23 @@ oneside,
 12pt,
 ]{book}
 
-% 大部分設置放在了 zylatex.sty 包中，以便複用。
+%% 大部分設置放在了 zylatex.sty 包中，以便複用。
 \usepackage[
-style=en,
-fontset=zytc,
-layout=phone,
+style = en,
+fontset = zytc,
+layout = paper,
+datetime = iso,
 ]{zylatex}
 
-% 多語言混排設置。
+%% 多語言混排設置。
+% zylatex 不可能知道您的文檔中用到了哪幾種語言，更不會知道您是否需要 polyglossia
+% 所提供的跟據音節拆詞的功能，因此這一部分沒有集成進 zylatex，必須自己手動調用。
+% 通常只包含中文和英文的文檔是不需要調用 polyglossia 的。
 \usepackage{polyglossia}
 \setdefaultlanguage{english}
 \setotherlanguages{russian}
 
-% 頁眉頁腳設置。
+%% 頁眉頁腳設置。
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
@@ -27,6 +31,7 @@ layout=phone,
 \fancyhead[RE, RO]{\leftmark}
 \fancyfoot[CE, CO]{\thepage}
 
+%% 封面、作者設置。
 \title{
   \Huge \LaTeX 模板文檔 \\
   \Large \LaTeX\ Template Document
@@ -34,7 +39,7 @@ layout=phone,
 \author{
   陳卓 (Eric Chen)
 }
-\date{\today}
+\date{\DTMtoday}
 
 \begin{document}
 
@@ -42,7 +47,33 @@ layout=phone,
 
 \tableofcontents
 
-\chapter{文本設置}
+\chapter{模板介紹}
+
+\LaTeX 是一種經常被用到的文檔製作工具。在平時的使用中，筆者發現，每次創建一個新的 LaTeX 項目時，都會有大量代碼需要被重複用到，比如：中文支持的開啓與配置，字體的搭配，頁面佈局的設置，常用包的啓用，表格的外觀配置，等等。因此，筆者把\textbf{自己經常用到的設置}整合了起來，製作成了這個名爲 \texttt{zylatex.sty} 的宏包，方便自己的日常使用。\textit{對於第三方用戶而言，此包可能包含大量筆者的個人偏好，並不完全符合用戶心中「好」的定義；因此，此宏包僅供參考，也歡迎任何人以此包作爲基礎開發符合自己偏好的包。}筆者個人使用此包的方式有：
+
+\begin{enumerate}
+\item 在小論文、說明文檔等 LaTeX 文檔中調用此包，省去大量配置過程。
+\item 將 \href{https://orgmode.org/}{Org Mode} 文件導出爲 PDF 時，用作風格模板。
+\end{enumerate}
+
+\section{調用此包}
+
+此包的調用方式與其它 LaTeX 包無異，衹需在 TeX 文件的前言部分（即 \texttt{\textbackslash begin\{document\}} 語句之前的部分）寫下如下語句即可
+
+\begin{verbatim}
+\usepackage[
+option1 = xxx,
+option2 = xxx,
+...
+optionN = xxx,
+]{/path/to/zylatex}
+\end{verbatim}
+
+其中，\texttt{optionX} 指的是 \texttt{zylatex} 提供的諸多用戶可選項。\texttt{/path/to/zylatex} 指的是 \texttt{zylatex.sty} 的路徑，它可以是絕對路徑，也可以是相對於您的 TeX 文件的相對路徑；如果您把 \texttt{zylatex.sty} 與您的 TeX 文件放在同一目錄下的話，便可以直接寫作 \texttt{\textbackslash usepackage[...]{zylatex}}。
+
+關於此包提供的的各個用戶可選項的用法，請閱讀本模板文檔的各個章節。
+
+\chapter{一般設置}
 
 \section{段落縮進}
 
