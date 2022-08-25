@@ -69,15 +69,23 @@ optionN = xxx,
 ]{/path/to/zylatex}
 \end{verbatim}
 
-其中，\texttt{optionX} 指的是 \texttt{zylatex} 提供的諸多用戶可選項。\texttt{/path/to/zylatex} 指的是 \texttt{zylatex.sty} 的路徑，它可以是絕對路徑，也可以是相對於您的 TeX 文件的相對路徑；如果您把 \texttt{zylatex.sty} 與您的 TeX 文件放在同一目錄下的話，便可以直接寫作 \texttt{\textbackslash usepackage[...]{zylatex}}。
+其中，\texttt{optionX} 指的是 \texttt{zylatex} 提供的諸多用戶可選項。\texttt{/path/to/zylatex} 指的是 \texttt{zylatex.sty} 的路徑，它可以是絕對路徑，也可以是相對於您的 TeX 文件的相對路徑；如果您把 \texttt{zylatex.sty} 與您的 TeX 文件放在同一目錄下的話，便可以直接寫作 \texttt{\textbackslash usepackage[...]\{zylatex\}}。
 
 關於此包提供的的各個用戶可選項的用法，請閱讀本模板文檔的各個章節。
 
 \chapter{一般設置}
 
-\section{段落縮進}
+\section{風格}
 
-\texttt{zylatex} 默認採用西文的段落縮進方式，即——段首不縮進，但段落與段落之間有一定間距，用於區分段落。這個文檔使用的正是西文縮進方式。可以使用 \texttt{zhindent=true} 選項來啓用中文的常用縮進方式，即——每個段落的開頭縮進兩個漢字長度，段落與段落之間不設額外間距。
+\texttt{zylatex} 使用 \texttt{style} 參數來控制文檔的風格，該參數共有三種可能值：\texttt{en}、\texttt{tc} 與 \texttt{sc}。
+
+\begin{itemize}
+\item \texttt{style=en} 段首不縮進，章節圖表名稱等使用英文。
+\item \texttt{style=tc} 段首縮進，章節圖表名稱等使用傳統漢字。
+\item \texttt{style=sc} 段首縮進，章節圖表名稱等使用簡體漢字。
+\end{itemize}
+
+本模板文檔採用的是 \texttt{style=en} 風格。
 
 \section{字體選取}
 
@@ -110,6 +118,10 @@ optionN = xxx,
 \end{table}
 
 \section{頁面設置}
+
+\texttt{zylatex} 提供了兩種頁面佈局：\texttt{layout=paper} 和 \texttt{layout=phone}，分別適合紙面打印和手機屏幕閱讀。\texttt{layout=phone} 會使用極小的頁邊距、較小的標題字號和較小的行距，確保在手機等移動設備的屏幕上也能看到足够內容。
+
+\chapter{示例文本}
 
 \section{中文示例}
 
