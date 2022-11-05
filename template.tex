@@ -53,12 +53,12 @@ datetime = iso,
 
 \begin{enumerate}
 \item 在小論文、說明文檔等 LaTeX 文檔中調用此包，省去大量配置過程。
-\item 將 \href{https://orgmode.org/}{Org Mode} 文件導出爲 PDF 時，用作風格模板。
+\item 將 \href{https://orgmode.org/}{Org mode} 文件導出爲 PDF 時，用作風格模板。
 \end{enumerate}
 
 \section{調用此包}
 
-此包的調用方式與其它 LaTeX 包無異，衹需在 TeX 文件的前言部分（即 \texttt{\textbackslash begin\{document\}} 語句之前的部分）寫下如下語句即可
+此包的調用方式與其它 LaTeX 包無異，只需在 TeX 文件的前言部分（即 \texttt{\textbackslash begin\{document\}} 語句之前的部分）寫下如下語句即可
 
 \begin{verbatim}
 \usepackage[
@@ -104,13 +104,13 @@ optionN = xxx,
     \hline
      字體名稱 & 字體命令 & \texttt{windows} 方案 & \texttt{zytc} 方案 \\
     \hline
-    宋體（中文正文） & \texttt{\textbackslash songti} & 宋体 & 一點明體 \\
-    黑體 & \texttt{\textbackslash heiti} & 黑体 & 更紗黑體 CL \\
-    仿宋體 & \texttt{\textbackslash fangsong} & 仿宋 & Adobe 仿宋 Std \\
-    楷書 & \texttt{\textbackslash kaishu} & 楷书 & 文鼎PL中楷 \\
+    宋體（中文正文） & \texttt{\textbackslash songti} & 宋体 & Source Han Serif TC\footnote{又名「思源宋體 香港」} \\
+    黑體 & \texttt{\textbackslash heiti} & 黑体 & Sarasa Gothic HC\footnote{又名「更紗黑體 HC」} \\
+    仿宋體 & \texttt{\textbackslash fangsong} & 仿宋 & Adobe 仿宋 Std R \\
+    楷書 & \texttt{\textbackslash kaishu} & 楷书 & Adobe 楷書 Std R \\
     衬綫體（西文正文） & 無 & \LaTeX 默認 & IBM Plex Serif \\
     無衬綫體 & \texttt{\textbackslash textsf} & \LaTeX 默認 & Roboto \\
-    等寬體 & \texttt{\textbackslash texttt} & \LaTeX 默認 & Sarasa Mono HC \\
+    等寬體 & \texttt{\textbackslash texttt} & \LaTeX 默認 & Sarasa Mono HC\footnote{又名「等距更紗黑體 HC」} \\
     \hline
   \end{tabular}
   \caption{C\TeX 的 \texttt{windows} 方案與筆者自用的 \texttt{zytc} 方案之對比}
